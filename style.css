@@ -23,6 +23,10 @@ body {
   border-radius: 20px;
 }
 
+.night-mode {
+  color: aliceblue;
+}
+
 .calculator {
   background-color: lightcyan;
   height: 25rem;
@@ -54,6 +58,7 @@ button {
   color: white;
   font-size: 30px;
   border-radius: 20px;
+  outline: none;
 }
 
 .top-row {
@@ -62,4 +67,19 @@ button {
 
 .equals {
   background-color: coral;
+}
+
+.top-row:hover,
+.top-row:focus {
+  background-color: skyblue;
+}
+
+.number:hover,
+.number:focus {
+  background-color: slateblue;
+}
+
+.equals:hover,
+.equals:focus {
+  background-color: orangered;
 }
