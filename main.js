@@ -17,15 +17,15 @@ let operation = ''
 //Number handler
 for (const num of number) {
     num.addEventListener('click', () => {
-        
-        firstNumber += num.innerText
+        if (operation === '') {
+            firstNumber += num.innerText
         updateDisplay()
-        // console.log('1st' + firstNumber)
-        // if (firstNumber !== '' && secondNumber === '' && operator !== '') {
-        //     secondNumber += num.innerText
-        //     updateDisplay()
-        //     console.log('2nd' + secondNumber)
-        // }
+        } else {
+            secondNumber += num.innerText
+            updateDisplay()
+        }
+        
+
     })
 }
 
@@ -55,10 +55,10 @@ equals.addEventListener('click', () => {
     let a = Number(firstNumber)
     let b = Number(secondNumber)
 
-    if (operation == '+') display.innerText = a + b;
-    if (operation == '-') display.innerText = a - b;
-    if (operation == '*') display.innerText = a * b;
-    if (operation == '÷') display.innerText = a / b;
+    if (operation == '+') updateDisplay(operation);
+    if (operation == '-')  updateDisplay(operation);
+    if (operation == '*')  updateDisplay(operation);
+    if (operation == '÷')  updateDisplay(operation);
 }) 
 
 //clear display 
