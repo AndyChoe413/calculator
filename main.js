@@ -18,14 +18,12 @@ let operation = ''
 for (const num of number) {
     num.addEventListener('click', () => {
         if (operation === '') {
-            firstNumber += num.innerText
-        updateDisplay()
+            firstNumber += num.innerText;
+            updateDisplay();
         } else {
-            secondNumber += num.innerText
-            updateDisplay()
+            secondNumber += num.innerText;
+            updateDisplay();
         }
-        
-
     })
 }
 
@@ -34,31 +32,34 @@ for (const operand of operator) {
     operand.addEventListener('click', () => {
         if (firstNumber !== '') {
             display.innerText = firstNumber + operand.innerText;
-            operation = operand.textContent;
-            console.log(operation);
+            operation = operand.textContent;           
         }       
     })
 }
 
 //updated display with keystrokes
 function updateDisplay() {
-    if (firstNumber !== '' && secondNumber === '' && operator === '')
-        display.textContent = firstNumber;
-    if (firstNumber !== '' && secondNumber === '' && operator !== '')
-        display.textContent = firstNumber + operation;
-    if (firstNumber !== '' && secondNumber !== '' && operator !== '')
-        display.textContent = firstNumber + operation + secondNumber
+    display.textContent = firstNumber + operation + secondNumber
 }
 
 //Calculation handler
 equals.addEventListener('click', () => {
+    let result;
     let a = Number(firstNumber)
     let b = Number(secondNumber)
+    
+    if (operation === '+') {
+        result = a + b;
+    } else if (operation === '-') {
+        result = a - b;
+    } else if (operation === '*') {
+        result = a * b;
+    } else if(operation === '÷'){
+        result = a / b;
+    }
 
-    if (operation == '+') updateDisplay(operation);
-    if (operation == '-')  updateDisplay(operation);
-    if (operation == '*')  updateDisplay(operation);
-    if (operation == '÷')  updateDisplay(operation);
+    display.textContent = result;
+    // console.log(result)
 }) 
 
 //clear display 
